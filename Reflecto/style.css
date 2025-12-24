@@ -1,0 +1,148 @@
+/* --- ЗМІННІ КОЛЬОРІВ (Reflecto / UAL Style) --- */
+:root {
+    --bg-color: #f4f6f8;
+    --sidebar-bg: #ffffff;
+    --card-bg: #ffffff;
+    
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    
+    --accent-yellow: #fdcb6e;   /* М'який жовтий (Стежина) */
+    --accent-dark: #d35400;     /* Темніший для контрасту */
+    --primary-btn: #2d3436;     /* Чорний/Темно-сірий */
+    
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    --radius: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+body { background-color: var(--bg-color); color: var(--text-primary); height: 100vh; display: flex; }
+
+/* --- SIDEBAR --- */
+.app-container { display: flex; width: 100%; height: 100%; }
+
+.sidebar {
+    width: 280px;
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-right: 1px solid #eaeaea;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+.logo i { color: var(--accent-yellow); margin-right: 8px; }
+
+.menu { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+.menu-item {
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 14px 18px;
+    border-radius: var(--radius);
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.menu-item:hover { background-color: #f9f9f9; color: var(--text-primary); }
+.menu-item.active { background-color: #fff8e1; color: #b7791f; font-weight: 600; }
+
+.sidebar-footer { border-top: 1px solid #f0f0f0; padding-top: 20px; }
+.user-info { display: flex; align-items: center; gap: 12px; }
+.avatar { 
+    width: 40px; height: 40px; background: var(--primary-btn); 
+    color: white; border-radius: 50%; display: flex; 
+    align-items: center; justify-content: center; font-weight: bold; 
+}
+.user-details { display: flex; flex-direction: column; }
+.user-details .name { font-weight: bold; font-size: 14px; }
+.user-details .status { font-size: 12px; color: var(--text-secondary); }
+
+/* --- MAIN CONTENT --- */
+.main-content { flex: 1; padding: 40px 50px; overflow-y: auto; }
+
+.top-bar { margin-bottom: 40px; }
+.breadcrumbs { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;}
+h1 { font-size: 32px; font-weight: 700; }
+
+/* --- GRID --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.card h3 { font-size: 16px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Картка 1: Input (Широка) */
+.input-card { grid-column: span 2; }
+textarea {
+    width: 100%; height: 120px; border: 2px solid #f0f0f0; border-radius: 12px;
+    padding: 15px; resize: none; font-size: 16px; outline: none; transition: 0.3s;
+    background: #fafafa;
+}
+textarea:focus { border-color: var(--accent-yellow); background: #fff; }
+
+.card-actions { margin-top: 15px; display: flex; justify-content: space-between; }
+.btn-primary { background: var(--primary-btn); color: white; border: none; padding: 12px 24px; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+.btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+.btn-secondary { background: #f0f0f0; color: var(--text-primary); border: none; width: 45px; height: 45px; border-radius: 10px; cursor: pointer; }
+
+/* Картка 2: Template */
+.template-card { background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%); border: 1px solid #ffeeba; }
+.daily-question { font-size: 18px; font-style: italic; color: #555; margin: 20px 0; line-height: 1.4; }
+.btn-outline { background: transparent; border: 2px solid var(--text-primary); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; width: fit-content; }
+
+/* Картка 3: Stats */
+.stats-card { grid-column: span 2; }
+.chart-container { position: relative; height: 200px; width: 100%; }
+.time-select { padding: 5px 10px; border-radius: 6px; border: 1px solid #ddd; outline: none; }
+
+/* Картка 4: List */
+.activity-list { list-style: none; margin-top: 10px; }
+.activity-item { display: flex; align-items: center; gap: 15px; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
+.activity-item:last-child { border-bottom: none; }
+.item-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.color-1 { background: #e3f2fd; color: #2196f3; }
+.color-2 { background: #e8f5e9; color: #4caf50; }
+.item-content { display: flex; flex-direction: column; }
+.item-content .title { font-weight: 600; font-size: 14px; }
+.item-content .time { font-size: 12px; color: #999; margin-top: 3px; }
+
+
+/* Клас для приховування секцій */
+.hidden-section {
+    display: none !important;
+}
+
+/* Анімація появи */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
