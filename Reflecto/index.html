@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflecto | Твій простір ясності</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-feather-pointed"></i> Reflecto
+            </div>
+            
+            <nav class="menu">
+                <a href="#" class="menu-item active" data-target="compass">
+                    <i class="fa-regular fa-compass"></i> Компас
+                </a>
+                <a href="#" class="menu-item" data-target="reflectorium">
+                    <i class="fa-solid fa-book-open"></i> Рефлекторій
+                </a>
+                <a href="#" class="menu-item" data-target="stats">
+                    <i class="fa-solid fa-chart-line"></i> Статистика
+                </a>
+                <a href="#" class="menu-item" data-target="archive">
+                    <i class="fa-solid fa-box-archive"></i> Архів
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar">U</div>
+                    <div class="user-details">
+                        <span class="name">User</span>
+                        <span class="status">В пошуках ясності</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="breadcrumbs">Стежина / <span id="pageTitle">Компас</span></div>
+                <h1 id="pageHeader">Привіт! Готовий звільнити голову?</h1>
+            </header>
+
+            <section id="section-compass" class="tab-content fade-in">
+                <div class="dashboard-grid">
+                    <div class="card input-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-pen-to-square"></i> Швидка думка</h3>
+                            <span class="badge">Draft</span>
+                        </div>
+                        <textarea id="thoughtInput" placeholder="Що тебе зараз турбує? Просто пиши..."></textarea>
+                        <div class="card-actions">
+                            <button class="btn-secondary"><i class="fa-solid fa-microphone"></i></button>
+                            <button class="btn-primary" id="saveBtn">Зберегти в Рефлекторій</button>
+                        </div>
+                    </div>
+
+                    <div class="card template-card">
+                        <h3>Питання дня</h3>
+                        <div class="daily-question">
+                            "Що сьогодні дало тобі енергію, а що забрало?"
+                        </div>
+                        <button class="btn-outline">Відповісти</button>
+                    </div>
+
+                    <div class="card recent-card" style="grid-column: span 3;">
+                        <h3>Останні активності</h3>
+                        <ul class="activity-list" id="notesListWidget">
+                            <li class="activity-item">
+                                <div class="item-icon color-2"><i class="fa-solid fa-heart"></i></div>
+                                <div class="item-content">
+                                    <span class="title">Вдячність за день</span>
+                                    <span class="time">Сьогодні, 09:00</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-reflectorium" class="tab-content hidden-section fade-in">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Твої записи</h3>
+                        <button class="btn-outline">Фільтр</button>
+                    </div>
+                    <ul class="activity-list" id="fullNotesList">
+                        <li class="activity-item">
+                            <div class="item-icon color-1"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="item-content">
+                                <span class="title">Ідея для стартапу Reflecto</span>
+                                <span class="time">Вчора, 22:15</span>
+                                <p style="font-size: 13px; color: #777; margin-top: 5px;">Потрібно зробити дизайн схожим на LMS систему...</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="section-stats" class="tab-content hidden-section fade-in">
+                <div class="dashboard-grid">
+                    <div class="card stats-card" style="grid-column: span 3;">
+                        <div class="card-header">
+                            <h3>Емоційний ритм</h3>
+                            <select class="time-select"><option>Цей тиждень</option></select>
+                        </div>
+                        <div class="chart-container" style="height: 300px;">
+                            <canvas id="moodChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Слів написано</h3>
+                        <h2 style="font-size: 40px; color: var(--text-primary);">1,240</h2>
+                    </div>
+                    <div class="card">
+                        <h3>Днів підряд</h3>
+                        <h2 style="font-size: 40px; color: var(--accent-dark);">5 🔥</h2>
+                    </div>
+                    <div class="card">
+                        <h3>Ясність</h3>
+                        <h2 style="font-size: 40px; color: #28a745;">85%</h2>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="section-archive" class="tab-content hidden-section fade-in">
+                <div class="card" style="text-align: center; padding: 50px;">
+                    <i class="fa-solid fa-box-open" style="font-size: 48px; color: #ddd; margin-bottom: 20px;"></i>
+                    <h3>Архів порожній</h3>
+                    <p>Ти ще нічого не архівував.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
